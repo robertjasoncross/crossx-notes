@@ -1,9 +1,9 @@
-## Docker - Digital Ocean - Bash - Postgres - Numpy - Python - Jupyter - ReactJS ##
+## Docker - Digital Ocean - Bash - Postgres - Git - Python - Numpy - Gunicorn - Jupyter - ReactJS - Django ##
 
-#### Errors ####
+#### Experienced Errors ####
 - Numpy - OpenBLAS
-- Postgres | Docker - authentication with container backups
-- Postgres | Docker | Django - bash script to wait for Postgres service 
+- Postgres, Docker - authentication with container backups
+- Postgres, Docker, Django - bash script to wait for Postgres service 
 
 ### Docker - Postgres
 **Undestanding the container context is key when executing commands locally and in the containers**
@@ -26,7 +26,6 @@ RUN chmod +x /a_backup.sql
 
 ```
 
-
 * *This command would fail with authorization as the user is not in the container where the database is. The postgres user is in the wrong context. Although, in any context specific scenario this should work just fine*
 ``` *.\sh-session
 docker compose -f local.yml exec db psql -U postgres -h localhost database_name < database_backup.sql
@@ -35,6 +34,17 @@ docker compose -f local.yml exec db psql -U postgres -h localhost database_name 
 *Accessing a shell in the ccontainer context will only allow you to see the files you have copied over as defined in the Dockerfile. So, psql in the container context will only see those files that were copied there per the Dockerfile *
 ``` *.\sh-session
 docker compose -f local.yml exec db /bin/sh
+```
+
+### Docker - Node - React
+
+
+*Update npm to the latest before installing dependencies. Specific react-script or other vesions post npm@latest*
+
+``` Dockerfile
+RUN npm install npm@latest --silent
+RUN npm install --silent
+RUN npm install react-scripts@2.1.8 -g --silent
 ```
 
 ### Numpy ###
