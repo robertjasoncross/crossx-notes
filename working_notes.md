@@ -35,6 +35,14 @@ docker compose -f local.yml exec db psql -U postgres -h localhost database_name 
 ``` *.\sh-session
 docker compose -f local.yml exec db /bin/sh
 ```
+### Docker/Cloud Gunicorn ###
+*Settings for Gunicorn running on Azure/Cloud. Timeout settings and other deatails that may be effective in resolving hanging*
+
+https://docs.microsoft.com/en-us/azure/app-service/configure-language-python#flask-app
+
+```Dockerfile
+CMD gunicorn config.wsgi:application -b :8000 --timeout 600 --workers=3 --threads=3 --worker-connections=1000
+```
 
 ### Docker - Node - React
 
