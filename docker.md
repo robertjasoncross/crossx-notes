@@ -28,3 +28,29 @@ docker compose -f local.yml exec db psql -U postgres -h localhost database_name 
 ``` *.\sh-session
 docker compose -f local.yml exec db /bin/sh
 ```
+
+### Numpy ###
+
+*Possible Errors*
+- OpenBLAS errors possibly caused by errors with libraries
+- Some scenarios of possible conflicting libraries iwht others like SciPy 
+
+*Numpy can cause a lot of problems in certain Docker scenarios and I found this information on the Numpy site to be helpful*
+
+https://numpy.org/install/
+
+https://numpy.org/doc/stable/user/troubleshooting-importerror.html
+
+NumPy packages & accelerated linear algebra libraries
+
+NumPy doesn’t depend on any other Python packages, however, it does depend on an accelerated linear algebra library - typically Intel MKL or OpenBLAS. Users don’t have to worry about installing those (they’re automatically included in all NumPy install methods). Power users may still want to know the details, because the used BLAS can affect performance, behavior and size on disk:
+
+
+The NumPy wheels on PyPI, which is what pip installs, are built with OpenBLAS. The OpenBLAS libraries are included in the wheel. This makes the wheel larger, and if a user installs (for example) SciPy as well, they will now have two copies of OpenBLAS on disk.
+
+### Bash ###
+*Shells*
+
+Ubuntu /bin/bash
+
+Alpine /bin/sh
