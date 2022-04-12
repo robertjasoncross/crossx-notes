@@ -31,7 +31,7 @@ RUN chmod +x /a_backup.sql
 docker compose -f local.yml exec db psql -U postgres -h localhost database_name < database_backup.sql
 ```
 
-*Accessing a shell in the ccontainer context will only allow you to see the files you have copied over as defined in the Dockerfile. So, psql in the container context will only see those files that were copied there per the Dockerfile *
+* *Accessing a shell in the ccontainer context will only allow you to see the files you have copied over as defined in the Dockerfile. So, psql in the container context will only see those files that were copied there per the Dockerfile*
 ``` *.\sh-session
 docker compose -f local.yml exec db /bin/sh
 ```
@@ -39,7 +39,7 @@ docker compose -f local.yml exec db /bin/sh
 ### Docker - Node - React
 
 
-*Update npm to the latest before installing dependencies. Specific react-script or other vesions post npm@latest*
+*In project Dockerfile update npm to the latest before installing dependencies. Specific react-script or other vesions post npm@latest*
 
 ``` Dockerfile
 RUN npm install npm@latest --silent
