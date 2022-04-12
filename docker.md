@@ -1,4 +1,9 @@
-#### Docker - Digital Ocean - Bash - Postgres - Numpy - Python - Jupyter - ReactJS ####
+## Docker - Digital Ocean - Bash - Postgres - Numpy - Python - Jupyter - ReactJS ##
+
+#### Errors ####
+- Numpy - OpenBLAS
+- Postgres | Docker - authentication with container backups
+- Postgres | Docker | Django - bash script to wait for Postgres service 
 
 ### Docker - Postgres
 **Undestanding the container context is key when executing commands locally and in the containers**
