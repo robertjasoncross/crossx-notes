@@ -13,9 +13,12 @@ docker compose -f local.yml exec db /bin/sh -c "PGPASSWORD=postgres psql --usern
 ```
 * *If you would rather execture the commands within the container then the files on the local disk must be ccopies into the container in the Dockerfile, otherwise they will not be seen in the container context*
 
+* *This would copy a file in the root compose directory to the root of the container and change permissions to execute*
 
 ```Dockerfile
-ADD /a_backup.sql /db/backups/a_backup.sql
+ADD /a_backup.sql /
+RUN chmod +x /a_backup.sql
+
 ```
 
 
