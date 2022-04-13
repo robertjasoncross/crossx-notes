@@ -4,6 +4,7 @@
 - Numpy - OpenBLAS
 - Postgres, Docker - authentication with container backups
 - Postgres, Docker, Django - bash script to wait for Postgres service 
+- Django, React and Mime Types during production
 
 ### Docker - Postgres
 **Undestanding the container context is key when executing commands locally and in the containers**
@@ -53,6 +54,25 @@ CMD gunicorn config.wsgi:application -b :8000 --timeout 600 --workers=3 --thread
 RUN npm install npm@latest --silent
 RUN npm install --silent
 RUN npm install react-scripts@2.1.8 -g --silent
+```
+### Django / React ###
+* *For hosting a React SPA in a Django hosted server you need to reconcile MIME type conflicts with the reading of the index file. This function reconciles this by returning the file reference as opposed to merely serving the static html file that was created in React and not being referenced properly in the return. By default the url reponse for TemplateView is just 
+
+
+ ```python   
+ 
+from django.shortcuts import render
+def render_react(request):
+    return render(request, "index.html") 
+    
+ urlpatterns += [
+ # The last patterns to match in urls
+  re_path(".*", render_react),
+  path("", render_react),
+  # Previous version that did not resolve MIME type conditions properly for a React Builds
+  # re_path(".*", TemplateView.as_view(template_name="index.html", content_type='application/javascript')),
+  # path("", TemplateView.as_view(template_name="index.html", content_type='application/javascript')),
+]
 ```
 
 ### Numpy ###
