@@ -56,7 +56,7 @@ RUN npm install --silent
 RUN npm install react-scripts@2.1.8 -g --silent
 ```
 ### Django / React ###
-* *For hosting a React SPA in a Django hosted server you need to reconcile MIME type conflicts with the reading of the index file. This function reconciles this by returning the file reference as opposed to merely serving the static html file that was created in React and not being referenced properly in the return. By default the url reponse for TemplateView is just 
+*For hosting a React SPA in a Django hosted server you need to reconcile MIME type conflicts with the reading of the index file. This function reconciles this by returning the file reference as opposed to merely serving the static html file that was created in React and not being referenced properly in the return. By default the url reponse for TemplateView is just* 
 
 
  ```python   
