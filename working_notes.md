@@ -60,7 +60,7 @@ RUN npm install react-scripts@2.1.8 -g --silent
 
 
  ```python   
- 
+ # We use a returned request as opposed to a static template per the TemplateView. TemplateView works in Dev but fails per Mime Type conflict with React when deplyed from Django's build folder.
 from django.shortcuts import render
 def render_react(request):
     return render(request, "index.html") 
