@@ -22,7 +22,7 @@ docker compose -f local.yml exec db /bin/sh -c "PGPASSWORD=postgres psql --usern
 * *This would copy a file in the root compose directory to the root of the container and change permissions to execute*
 
 ```Dockerfile
-ADD /a_backup.sql /
+COPY /a_backup.sql /
 RUN chmod +x /a_backup.sql
 
 ```
